@@ -50,6 +50,7 @@ import com.giovanniterlingen.windesheim.ApplicationLoader;
 import com.giovanniterlingen.windesheim.R;
 import com.giovanniterlingen.windesheim.handlers.ColorHandler;
 import com.giovanniterlingen.windesheim.objects.IScheduleView;
+import com.giovanniterlingen.windesheim.ui.EasterEggActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -164,6 +165,15 @@ public class ScheduleAdapter extends CursorRecyclerViewAdapter<ScheduleAdapter.V
             lessonTime.setText(lessonTimes);
             viewHolder.cardView.setOnClickListener(null);
         }
+        viewHolder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent easterIntent = new Intent(ApplicationLoader.applicationContext,
+                        EasterEggActivity.class);
+                activity.startActivity(easterIntent);
+                return true;
+            }
+        });
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
